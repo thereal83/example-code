@@ -2,7 +2,7 @@ Example Code
 =======================
 
 This repository trains a machine-learned model to predict delivery times for
-orders on a hypothetical meal delivery app.
+orders on a hypothetical meal delivery service.
 
 The model uses a variety of features to make predictions including: the
 time and day of the order, store id, features of the items in the order,
