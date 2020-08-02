@@ -59,7 +59,8 @@ def make_lookup(frame, column):
     lookup = compress(lookup)
 
     # NOTE: dict: index -> list (row.tolist())
-    #  dicts are faster to work with than DataFrames
+    #  dicts are faster to work with for online inference than
+    #  DataFrames
     return lookup.T.to_dict(orient='list')
 
 

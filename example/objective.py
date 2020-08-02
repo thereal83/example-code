@@ -46,7 +46,7 @@ def asymmetric_mse_objective(predt, dtrain):
 # Metrics
 ###########################################################################
 
-def asymmetric_mse_metric(predt, dtrain):
+def asymmetric_rmse_metric(predt, dtrain):
     """Assymetric RMSE metric."""
     y = dtrain.get_label()
 

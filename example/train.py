@@ -73,7 +73,7 @@ def train_xgboost(
             obj=objective.asymmetric_mse_objective if weighted else None,
             num_boost_round=num_rounds,
             evals=evallist,
-            feval=objective.asymmetric_mse_metric if weighted else None,
+            feval=objective.asymmetric_rmse_metric if weighted else None,
             early_stopping_rounds=early_stopping_rounds,
         )
         if bst.best_score < best_score:
