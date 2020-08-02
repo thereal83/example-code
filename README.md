@@ -38,27 +38,6 @@ some of the analysis.  For example, it won't generate a submission
 file.
 
 
-Evaluations
------
-
-The following table presents best runs from various models.  rmsle stands
-for root mean squared error where the error is a difference in logs.  a-rmsle
-is an assymetric version of rmsle such that the loss associated with late
-orders is 2x the loss associated with early orders.
-
-
-| model                   |  rmsle  | a-rmsle |
-|-------------------------|---------|---------|
-| baseline                | 0.52942 | 0.68893 |
-| random forest           | 0.30224 | 0.37565 |
-| xgboost                 | 0.28777 | 0.35845 |
-| xgboost w / custom loss | 0.29666 | 0.34627 |
-
-
-I performed hyperparemeter tuning for each model so these results
-represent the best run over that search space.
-
-
 Caching
 ----
 
