@@ -1,0 +1,6 @@
+"market_id","created_at","store_id","store_primary_category","order_protocol","total_items","subtotal","num_distinct_items","min_item_price","max_item_price","total_onshift_dashers","total_busy_dashers","total_outstanding_orders","estimated_order_place_duration","estimated_store_to_consumer_driving_duration","delivery_id","platform"
+"3",2015-02-25 02:22:30,"5477",NA,"1",5,7500,4,800,1800,4,4,4,446,670,"194096","android"
+"3",2015-02-25 01:14:19,"5477",NA,"1",5,7100,4,800,1500,4,1,1,446,446,"236895","other"
+"4",2015-02-22 02:27:44,"5477","thai","1",4,4500,2,750,1500,9,7,6,446,504,"190868","android"
+"3",2015-02-25 01:32:39,"5477",NA,"1",1,1700,1,1400,1400,3,3,3,446,687,"183076","ios"
+"1",2015-02-24 05:20:45,"2841","italian","1",2,3150,2,1525,1625,4,4,4,446,528,"186200","android"
