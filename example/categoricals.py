@@ -5,6 +5,7 @@ import numpy as np
 
 from example.persist import cache
 from example import preprocess
+from example import defaults
 
 
 ###########################################################################
@@ -12,7 +13,7 @@ from example import preprocess
 ###########################################################################
 
 def make_one_hots(frame, column, allowed_values=None):
-    default = preprocess.defaults()[column]
+    default = defaults.defaults()[column]
     if allowed_values is None:
         allowed_values = frame[column].unique().tolist()
         uniques = list(set(allowed_values + [default]))

@@ -5,6 +5,7 @@ import numpy as np
 
 from example import settings
 from example.persist import cache
+from example import defaults
 from example import preprocess
 from example import categoricals
 from example import lookups
@@ -22,7 +23,7 @@ _categoricals = {
 
 
 def categorical(series, column, build_input_layer=True):
-    default = preprocess.defaults()[column]
+    default = defaults.defaults()[column]
     lookup = pd.DataFrame.from_dict(_categoricals[column]()).T
     columns = [
         "_".join([column, str(i)]) for i in lookup.columns
@@ -52,7 +53,7 @@ _lookups = {
 
 
 def lookup(series, column, build_input_layer=True):
-    default = preprocess.defaults()[column]
+    default = defaults.defaults()[column]
     lookup = pd.DataFrame.from_dict(_lookups[column]()).T
     columns = [
         "_".join([column, str(i)]) for i in lookup.columns
