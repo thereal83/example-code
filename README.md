@@ -14,7 +14,7 @@ and can easily adapt the codebase to support real-time inference.
 Quickstart
 ----------
 
-How to install this package and run the code.
+Eager to get started? Follow these steps:
 
 1. Install the package (I highly recommend installing
 inside a virtual environment):
@@ -23,8 +23,8 @@ inside a virtual environment):
     pip install -e .[dev]
     ```
 
-    **WARNING**: `pip install` may create a new directory on your system.
-    See the section on caching to learn more.
+    **WARNING**: running this command may create a new directory
+    on your system.  See the section on caching to learn more.
 
 
 2. Run the code:
@@ -33,54 +33,58 @@ inside a virtual environment):
     python -u example/cicd.py
     ```
 
-Learn more by inspecting the codebase.  Running `cicd.py` will skip over
-some of the analysis.  For example, it won't generate a submission
-file.
+Learn more by inspecting the codebase.
 
 
 Caching
 ----
 
-This repository uses the package `DiskCache` for on-disc caching.  The cache is a
-key-value store where keys reflect the signature of your function call.  You can
-list keys in the cache with:
+This repository uses the package `DiskCache` for on-disc caching.
 
 ``` python
-from example.persist import cache
+from turo import persist
+from turo.persist import cache
+```
+
+The cache is a key-value store where keys reflect the signature of your function
+call.  You can list keys in the cache with:
+
+``` python
 [key for key in cache.iterkeys]
 ```
 
-The first time you call a function decorated with `@cache.memoize` the result
-is saved to disc.  Subsequent calls returned a cached copy of the result without
-re-running the function.  The cache persists between Python sessions.  If you
+This project uses the DiskCache `memoize` decorator.  The first time you call a
+function decorated with `@cache.memoize` the result is saved to disc.
+Subsequent calls returned a cached copy of the previous result.
+
+The cache persists between Python sessions.  If you
 want to re-run a function (due to an up-stream code change, say) you must
-first clear the the cache.  The following command clears everything
-from the cache:
+first clear the the cache.  To clear everything from the cache, run:
 
 ``` python
-from example.persist import cache
 cache.clear()
 ```
 
-The following command clears a single key-value pair from the cache:
+To clear a single key-value pair from the cache, run:
 
 ``` python
-from example.persist import cache
 cache.pop(<key>)
 ```
 
-Complete documentation for `DisKCache` is available
-[here](http://www.grantjenks.com/docs/diskcache/api.html).
-
-The storage location for the on-disc cache is system-specific and is
-determined dynamically at install time.  Run the following command to
-print the cache directory on your system:
+The on-disc cache is saved to a system-specific directory that we
+determine dynamically at install time using the AppDirs Python package.
+The following command prints the cache directory on your system:
 
 ``` python
-from example import persist
 print(persist.cache_dir)
 ```
 
-**WARNING**: `pip` will create this directory (if it doesn't already exist)
-when you install this pacakge.  Read more about `appdirs`
+**WARNING**: `setuptools` will create this directory (if it doesn't
+already exist) when you install this pacakge.  Uninstalling this package
+will not remove the directory.
+
+Read more about `appdirs`
 [here](https://github.com/ActiveState/appdirs).
+
+Complete documentation for `DisKCache` is available
+[here](http://www.grantjenks.com/docs/diskcache/api.html).
