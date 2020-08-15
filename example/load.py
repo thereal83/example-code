@@ -66,7 +66,7 @@ def raw_train(shuffle=False):
         train_dev,
         shuffle=shuffle,
         train_size=settings.train_size,
-        random_state=settings.random
+        random_state=settings.random_seed
     )
     return filter(data)
 
@@ -78,7 +78,7 @@ def raw_dev(shuffle=False):
         train_dev,
         shuffle=shuffle,
         train_size=settings.train_size,
-        random_state=settings.random
+        random_state=settings.random_seed
     )
     return filter(data)
 
@@ -94,7 +94,7 @@ def raw_test(shuffle=False):
     data = predict_data()
     if shuffle:
         return data.sample(
-            frac=1.0, random_state=settings.random)
+            frac=1.0, random_state=settings.random_seed)
     return data
 
 
