@@ -55,7 +55,7 @@ setup(
     install_requires=[
         "appdirs==1.4.4",
         "diskcache==4.1.0",
-        "numpy==1.19.1",
+        "numpy==1.22.0",
         "pandas==1.1.0",
         "xgboost==1.1.1",
         "sklearn",
